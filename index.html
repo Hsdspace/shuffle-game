@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Shuffle Game</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome!</h2>
+            <p>Please enter your Name to join:</p>
+            <input type="text" id="usernameInput" placeholder="Ex: John Doe">
+            <button id="loginBtn">Start Game</button>
+        </div>
+    </div>
+
+    <header>
+        <h1 id="welcomeHeader" style="color: #f1c40f; margin-bottom: 5px;">Name Shuffle Game</h1>
+        <p style="color: #ecf0f1;">Customize the list and spin the wheel!</p>
+    </header>
+
+    <div class="main-container">
+        <div class="wheel-section">
+            <div class="wheel-wrapper">
+                <div class="marker"></div>
+                <canvas id="wheelCanvas" width="500" height="500"></canvas>
+            </div>
+        </div>
+
+        <div class="controls-section"> 
+            <h3>Edit Participants</h3>
+            <textarea id="nameInput" placeholder="Enter names here..."></textarea>
+            
+            <div class="button-group">
+                <button id="spinBtn">SPIN THE WHEEL</button>
+                <button id="shuffleBtn" class="secondary-btn">Shuffle List</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="winnerModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 style="font-size: 2rem; color: #f1c40f;">🎉 Congratulations! 🎉</h2>
+            <p style="font-size: 1.1rem; margin-top: 10px;">The wheel has selected:</p>
+            
+            <h1 id="winnerText" style="font-size: 3rem; color: #2ecc71; margin: 20px 0;"></h1>
+            
+            <p style="font-size: 0.9rem; color: #7f8c8d;">Your result has been saved successfully.</p>
+            
+            <button onclick="document.getElementById('winnerModal').style.display='none'" style="margin-top:15px; width:auto; padding: 10px 30px;">Close</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
